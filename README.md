@@ -11,8 +11,8 @@ data/
   BLACKLIST.txt   ← master list of denied foods  (vegetables / unsafe items)
 src/
   index.html    ← single-page UI template
-  style.css     ← minimal styles
-  app.js        ← data loading, Levenshtein fuzzy-search, rendering
+app.js          ← data loading, Levenshtein fuzzy-search, rendering
+style.css       ← minimal styles
 ```
 
 ## Editing the lists
@@ -32,7 +32,7 @@ Install dependencies once, then run the build:
 
 ```bash
 npm install
-npm run build   # generates index.html, style.css, app.js at repo root
+npm run build   # generates index.html at repo root
 ```
 
 ## Running locally
