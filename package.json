@@ -1,0 +1,12 @@
+{
+  "name": "can-alexa-eat-that",
+  "version": "1.0.0",
+  "description": "A simple static site to check what Alexa can and cannot eat",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
