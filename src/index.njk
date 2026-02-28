@@ -1,0 +1,69 @@
+---
+title: Can Alexa Eat That?
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <input type="search" id="search" placeholder="Search for a food..." autofocus>
+  <div id="result" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+  <script>
+    const whitelist = {{ foods.whitelist | dump | safe }};
+    const blacklist = {{ foods.blacklist | dump | safe }};
+
+    const allFoods = [
+      ...whitelist.map(item => ({ ...item, allowed: true })),
+      ...blacklist.map(item => ({ ...item, allowed: false })),
+    ];
+
+    const fuse = new Fuse(allFoods, {
+      keys: ['name', 'description'],
+      threshold: 0.4
+    });
+
+    const searchInput = document.getElementById('search');
+    const resultDiv = document.getElementById('result');
+
+    function setText(el, text) {
+      el.textContent = text;
+    }
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+      resultDiv.innerHTML = '';
+      if (!query) return;
+
+      const results = fuse.search(query);
+      if (results.length === 0) {
+        const p = document.createElement('p');
+        p.className = 'unknown';
+        setText(p, 'Unknown food \u2014 not on either list.');
+        resultDiv.appendChild(p);
+        return;
+      }
+
+      const top = results[0].item;
+      const p = document.createElement('p');
+      p.className = top.allowed ? 'allowed' : 'not-allowed';
+      const strong = document.createElement('strong');
+      setText(strong, top.name);
+      if (top.allowed) {
+        p.appendChild(document.createTextNode('\u2705 Yes! Alexa can eat '));
+      } else {
+        p.appendChild(document.createTextNode('\u274C No. Alexa cannot eat '));
+      }
+      p.appendChild(strong);
+      p.appendChild(document.createTextNode('. ' + top.description));
+      resultDiv.appendChild(p);
+    });
+  </script>
+</body>
+</html>
