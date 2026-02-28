@@ -1,16 +1,14 @@
 module.exports = function (eleventyConfig) {
   // Pass through static assets unchanged.
-  eleventyConfig.addPassthroughCopy("src/*.css");
-  eleventyConfig.addPassthroughCopy("src/*.js");
-
-  // Copy TXT data files to dist root so app.js can fetch them.
-  eleventyConfig.addPassthroughCopy({ "WHITELIST.txt": "WHITELIST.txt" });
-  eleventyConfig.addPassthroughCopy({ "BLACKLIST.txt": "BLACKLIST.txt" });
+  eleventyConfig.addPassthroughCopy("style.css");
+  eleventyConfig.addPassthroughCopy("app.js");
+  eleventyConfig.addPassthroughCopy("data");
 
   return {
     dir: {
-      input: "src",
+      input: ".",
       output: "dist",
     },
+    templateFormats: ["html"],
   };
 };
