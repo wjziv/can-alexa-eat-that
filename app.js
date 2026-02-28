@@ -1,19 +1,12 @@
 /**
  * Can Alexa Eat That? — search logic
  *
- * Data is loaded from WHITELIST.txt and BLACKLIST.txt (one level up from src/).
- * Falls back to the same directory so the site also works when the TXT files
- * are copied alongside index.html for deployment.
+ * Data is loaded from data/WHITELIST.txt and data/BLACKLIST.txt.
  */
 
 const DATA_FILES = {
-  allowed: '../WHITELIST.txt',
-  denied:  '../BLACKLIST.txt',
-};
-
-const FALLBACK_FILES = {
-  allowed: './WHITELIST.txt',
-  denied:  './BLACKLIST.txt',
+  allowed: "data/WHITELIST.txt",
+  denied: "data/BLACKLIST.txt",
 };
 
 const SIMILARITY_THRESHOLD = 0.6;
@@ -22,13 +15,11 @@ const SIMILARITY_THRESHOLD = 0.6;
 // Data loading & parsing
 // ---------------------------------------------------------------------------
 
-async function fetchText(primary, fallback) {
-  for (const url of [primary, fallback]) {
-    try {
-      const res = await fetch(url);
-      if (res.ok) return await res.text();
-    } catch (err) { /* network or CORS error — try next path */ }
-  }
+async function fetchText(url) {
+  try {
+    const res = await fetch(url);
+    if (res.ok) return await res.text();
+  } catch (err) { /* network or CORS error */ }
   return '';
 }
 
@@ -204,8 +195,8 @@ function search(query, items) {
 
 (async function init() {
   const [whiteText, blackText] = await Promise.all([
-    fetchText(DATA_FILES.allowed, FALLBACK_FILES.allowed),
-    fetchText(DATA_FILES.denied,  FALLBACK_FILES.denied),
+    fetchText(DATA_FILES.allowed),
+    fetchText(DATA_FILES.denied),
   ]);
 
   const items = [
