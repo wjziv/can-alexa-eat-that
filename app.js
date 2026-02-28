@@ -199,11 +199,51 @@ function search(query, items) {
     .sort((a, b) => b.score - a.score);
 }
 
+function setupInstallPrompt() {
+  const installButton = document.getElementById('install-app');
+  if (!installButton) return;
+
+  let deferredPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    installButton.hidden = false;
+  });
+
+  installButton.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installButton.hidden = true;
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    installButton.hidden = true;
+  });
+}
+
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {
+      // Install prompt can still work without caching if registration fails.
+    });
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Bootstrap
 // ---------------------------------------------------------------------------
 
 (async function init() {
+  setupInstallPrompt();
+  registerServiceWorker();
+
   const [whiteText, blackText] = await Promise.all([
     fetchText(DATA_FILES.allowed),
     fetchText(DATA_FILES.denied),

@@ -36,6 +36,11 @@ npm start
 
 Open <http://localhost:8080>.
 
+## Install as web app
+
+On supported browsers, an **Install as app** button appears in the header once
+the install prompt is available.
+
 ## Building
 
 ```bash
