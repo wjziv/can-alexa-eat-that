@@ -106,7 +106,7 @@ function scoreItem(query, item) {
 // All-items list (alphabetized, icon + name only)
 // ---------------------------------------------------------------------------
 
-function renderAllItems(items, onSelectItem) {
+function renderAllItems(items) {
   const section = document.getElementById('all-items');
   const sorted = [...items].sort((a, b) =>
     a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
@@ -123,15 +123,9 @@ function renderAllItems(items, onSelectItem) {
   ul.className = 'all-items-list';
   for (const item of sorted) {
     const li = document.createElement('li');
+    li.dataset.itemName = item.name;
     li.setAttribute('role', 'button');
     li.tabIndex = 0;
-    li.addEventListener('click', () => onSelectItem(item.name));
-    li.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        onSelectItem(item.name);
-      }
-    });
 
     const iconSpan = document.createElement('span');
     iconSpan.setAttribute('aria-hidden', 'true');
@@ -141,6 +135,7 @@ function renderAllItems(items, onSelectItem) {
     ul.appendChild(li);
   }
   section.appendChild(ul);
+  return ul;
 }
 
 // ---------------------------------------------------------------------------
@@ -257,9 +252,11 @@ function registerServiceWorker() {
   const input = document.getElementById('search');
   const clearSearchBtn = document.getElementById('clear-search');
   const allSect = document.getElementById('all-items');
+  const resultsList = document.getElementById('results');
 
-  function applySearch(queryText) {
-    const query = queryText.trim();
+  function setQuery(nextValue, { focus = false, caretToEnd = false } = {}) {
+    input.value = nextValue;
+    const query = nextValue.trim();
     clearSearchBtn.hidden = query.length === 0;
 
     if (query) {
@@ -267,26 +264,40 @@ function registerServiceWorker() {
       renderResults(search(query, items));
     } else {
       allSect.hidden = false;
-      document.getElementById('results').innerHTML = '';
+      resultsList.innerHTML = '';
+    }
+
+    if (focus) {
+      input.focus();
+      if (caretToEnd) {
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
     }
   }
 
-  function selectItem(name) {
-    input.value = name;
-    input.focus();
-    input.setSelectionRange(name.length, name.length);
-    applySearch(name);
+  function handleAllItemSelect(event) {
+    const target = event.target;
+    const itemEl = target instanceof Element
+      ? target.closest('li[data-item-name]')
+      : null;
+    if (!itemEl) return;
+    setQuery(itemEl.dataset.itemName || '', { focus: true, caretToEnd: true });
   }
 
-  renderAllItems(items, selectItem);
+  const allItemsList = renderAllItems(items);
+  allItemsList.addEventListener('click', handleAllItemSelect);
+  allItemsList.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleAllItemSelect(event);
+    }
+  });
 
   input.addEventListener('input', () => {
-    applySearch(input.value);
+    setQuery(input.value);
   });
 
   clearSearchBtn.addEventListener('click', () => {
-    input.value = '';
-    input.focus();
-    applySearch('');
+    setQuery('', { focus: true });
   });
 })();

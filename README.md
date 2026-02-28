@@ -19,6 +19,8 @@ data/
 Each file follows a simple line format:
 
 ```
+Item Name
+# or
 Item Name: short, helpful description
 ```
 
