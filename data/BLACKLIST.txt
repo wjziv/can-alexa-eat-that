@@ -1,12 +1,51 @@
-Broccoli: green cruciferous vegetable with dense tree-like florets
-Spinach: tender leafy green vegetable rich in iron and vitamins
-Carrots: crunchy orange root vegetable high in beta-carotene
-Brussels Sprouts: small leafy green buds that grow on a thick stalk
-Kale: hearty dark leafy green in the cabbage family, often eaten raw or cooked
-Cauliflower: white cruciferous vegetable closely related to broccoli
-Asparagus: slender spring vegetable with a distinctive earthy flavor
-Beets: deep red root vegetable with a naturally sweet and earthy taste
-Celery: crisp green stalk vegetable with a mild flavor, commonly eaten raw
-Peas: small round green legumes that grow inside a pod
-Zucchini: mild-flavored green summer squash often used in savory dishes
-Kale Chips: baked or dehydrated kale leaves seasoned and served as a snack
+# Alexa's List - NO FOODS
+# AIP-style why: avoid grains, dairy, legumes, nightshades, and highly processed inputs.
+
+# GLUTEN & GRAINS
+Amaranth
+Barley
+Buckwheat
+Bulgur
+Corn
+Millet
+Oat: limited/moderation only.
+Quinoa
+Rice: white rice only in moderation.
+Rye
+Sorghum
+Spelt
+Wheat
+
+# DAIRY
+Butter
+Cheese
+Cream
+Ghee: limited/moderation only.
+Milk: use almond milk instead.
+Yogurt: use coconut milk yogurt instead.
+
+# LEGUMES
+Black beans
+Chickpeas: sometimes tolerated if very well processed (e.g., hummus).
+Fava beans
+Kidney beans
+Lentils
+Lima beans
+Peanuts: limited/moderation only.
+Soybeans: use coconut aminos instead of soy sauce.
+
+# NIGHTSHADE VEGETABLES
+Eggplant
+Goji berries
+Ground cherries: not the same as regular cherries.
+Peppers: all peppers (bell + spicy).
+Red spices: including chili powder and paprika.
+Potato
+Tomato
+Tomatillo
+
+# OTHER
+Alcohol
+Processed foods
+Refined sugars: limit.
+Artificial sweeteners: limit; prefer coconut sugar or maple syrup.
