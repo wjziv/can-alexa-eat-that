@@ -255,10 +255,13 @@ function registerServiceWorker() {
   ];
 
   const input = document.getElementById('search');
+  const clearSearchBtn = document.getElementById('clear-search');
   const allSect = document.getElementById('all-items');
 
   function applySearch(queryText) {
     const query = queryText.trim();
+    clearSearchBtn.hidden = query.length === 0;
+
     if (query) {
       allSect.hidden = true;
       renderResults(search(query, items));
@@ -279,5 +282,11 @@ function registerServiceWorker() {
 
   input.addEventListener('input', () => {
     applySearch(input.value);
+  });
+
+  clearSearchBtn.addEventListener('click', () => {
+    input.value = '';
+    input.focus();
+    applySearch('');
   });
 })();
