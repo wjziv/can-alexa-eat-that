@@ -126,3 +126,25 @@ main {
   padding: 1.5rem 0;
   font-size: 0.95rem;
 }
+
+/* Alphabetized full list */
+#all-items {
+  margin-top: 1.4rem;
+}
+
+.all-items-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.4rem 0.8rem;
+}
+
+.all-items-list li {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

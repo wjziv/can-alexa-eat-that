@@ -112,6 +112,28 @@ function scoreItem(query, item) {
 }
 
 // ---------------------------------------------------------------------------
+// All-items list (alphabetized, icon + name only)
+// ---------------------------------------------------------------------------
+
+function renderAllItems(items) {
+  const section = document.getElementById('all-items');
+  const sorted = [...items].sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+  );
+
+  section.innerHTML = '';
+  const ul = document.createElement('ul');
+  ul.className = 'all-items-list';
+  for (const item of sorted) {
+    const li = document.createElement('li');
+    const icon = item.status === 'allowed' ? '✅' : '❌';
+    li.innerHTML = `<span aria-hidden="true">${icon}</span> ${escapeHtml(item.name)}`;
+    ul.appendChild(li);
+  }
+  section.appendChild(ul);
+}
+
+// ---------------------------------------------------------------------------
 // UI rendering
 // ---------------------------------------------------------------------------
 
@@ -183,9 +205,18 @@ function search(query, items) {
   ];
 
   const input = document.getElementById('search');
+  const allSect = document.getElementById('all-items');
+
+  renderAllItems(items);
 
   input.addEventListener('input', () => {
-    const results = search(input.value, items);
-    renderResults(results);
+    const query = input.value.trim();
+    if (query) {
+      allSect.hidden = true;
+      renderResults(search(query, items));
+    } else {
+      allSect.hidden = false;
+      document.getElementById('results').innerHTML = '';
+    }
   });
 })();
