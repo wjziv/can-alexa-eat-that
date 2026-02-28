@@ -1,12 +1,106 @@
-Skittles: colorful fruit-flavored candy pieces available in many varieties
-M&Ms: small chocolate candies coated in a colorful candy shell
-Gummy Bears: chewy gelatin-based fruit-flavored candies shaped like bears
-Starburst: chewy, square fruit-flavored candies wrapped individually
-Jolly Ranchers: hard fruit-flavored candy with a bold, long-lasting taste
-Candy Corn: tri-colored waxy candy classically associated with Halloween
-Sour Patch Kids: soft chewy candy with a sour sugar coating and fruity center
-Reese's Peanut Butter Cups: chocolate cups filled with sweetened peanut butter
-Kit Kat: crispy wafer fingers covered in layers of smooth milk chocolate
-Twix: caramel and shortbread cookie fingers coated in milk chocolate
-Snickers: nougat and caramel bar loaded with peanuts and covered in chocolate
-Cotton Candy: spun sugar that dissolves on the tongue, light as air
+# Alexa's List - YES FOODS
+
+# MEATS
+Grass-fed or organic meats: preferred meat choices.
+Pasture-raised eggs: eggs from pasture-raised hens.
+
+# FRUITS
+Apple: whole apple fruit.
+Apricot: fresh or dried apricot.
+Avocado: whole avocado fruit.
+Banana: ripe banana fruit.
+Berries: berries such as strawberry, blueberry, and raspberry.
+Cherry: sweet or tart cherries.
+Citrus: citrus fruits like orange, lemon, and lime.
+Coconut: fresh coconut and coconut meat.
+Date: whole dates.
+Fig: fresh or dried fig.
+Grape: table grapes.
+Kiwi: kiwi fruit.
+Mango: ripe mango.
+Melons: melons such as cantaloupe and honeydew.
+Peach: fresh peach.
+Pear: fresh pear.
+Pineapple: fresh pineapple.
+Plantains: ripe or green plantains.
+Pomegranate: pomegranate arils or fruit.
+Watermelon: fresh watermelon.
+
+# VEGETABLES
+Artichoke: whole artichoke.
+Arugula: leafy arugula greens.
+Asparagus: fresh asparagus spears.
+Beets: whole beetroot.
+Broccoli: broccoli florets and stems.
+Brussels sprouts: whole Brussels sprouts.
+Bok choy: bok choy greens.
+Cabbage: green or red cabbage.
+Carrots: whole carrots.
+Cauliflower: cauliflower florets.
+Cucumber: fresh cucumber.
+Jicama: fresh jicama.
+Leek: leek stalks.
+Lettuce: leafy lettuce varieties.
+Mushroom: edible mushrooms.
+Onion: onions of any common variety.
+Parsnip: whole parsnips.
+Rutabaga: whole rutabaga.
+Spinach: fresh spinach.
+Squash: winter or summer squash.
+Sweet potato: orange sweet potato.
+White sweet potato: white sweet potato varieties.
+
+# HERBS & SPICES
+Basil: fresh or dried basil.
+Bay leaf: dried bay leaves.
+Chives: fresh chives.
+Cilantro: fresh cilantro.
+Cinnamon: ground or stick cinnamon.
+Dill: fresh or dried dill.
+Ginger: fresh or dried ginger.
+Garlic: fresh garlic.
+Mint: fresh mint.
+Parsley: fresh parsley.
+Peppermint: peppermint leaf.
+Rosemary: fresh or dried rosemary.
+Saffron: saffron threads.
+Sage: fresh or dried sage.
+Thyme: fresh or dried thyme.
+Turmeric: fresh or ground turmeric.
+Nutmeg: ground or whole nutmeg.
+Mustard: mustard seed or mustard seasoning.
+Everything bagel seasoning: mixed seed and spice seasoning blend.
+
+# OILS / FATS
+Avocado oil: avocado-based cooking oil.
+Coconut oil: coconut-based cooking oil.
+Olive oil: extra-virgin or regular olive oil.
+Palm oil: allowed when present as an ingredient.
+
+# PANTRY ITEMS
+Apple cider vinegar: fermented apple vinegar.
+Arrowroot starch: starch thickener from arrowroot.
+Cassava flour: cassava root flour.
+Almond flour: finely ground almond flour.
+Coconut flour: flour made from coconut.
+Coconut sugar: sugar derived from coconut palm.
+Dried fruit: unsweetened dried fruits.
+Honey: natural honey sweetener.
+Tapioca starch: tapioca-derived starch.
+Tigernut flour: flour made from tigernut tubers.
+
+# NUTS & SEEDS
+Almond: whole almonds.
+Cashew: whole cashews.
+Chia: chia seeds.
+Cocoa: cocoa powder or nibs.
+Flax: flax seeds.
+Hazelnut: whole hazelnuts.
+Hemp: hemp seeds.
+Pecan: whole pecans.
+Pistachio: whole pistachios.
+Pumpkin seeds: pumpkin seed kernels.
+Sesame: sesame seeds.
+Sunflower seeds: sunflower seed kernels.
+Walnut: whole walnuts.
+Almond milk: non-dairy milk substitute.
