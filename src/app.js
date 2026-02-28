@@ -122,12 +122,21 @@ function renderAllItems(items) {
   );
 
   section.innerHTML = '';
+
+  const heading = document.createElement('p');
+  heading.className = 'all-items-heading';
+  heading.textContent = 'All items';
+  section.appendChild(heading);
+
   const ul = document.createElement('ul');
   ul.className = 'all-items-list';
   for (const item of sorted) {
     const li = document.createElement('li');
-    const icon = item.status === 'allowed' ? '✅' : '❌';
-    li.innerHTML = `<span aria-hidden="true">${icon}</span> ${escapeHtml(item.name)}`;
+    const iconSpan = document.createElement('span');
+    iconSpan.setAttribute('aria-hidden', 'true');
+    iconSpan.textContent = item.status === 'allowed' ? '✅' : '❌';
+    li.appendChild(iconSpan);
+    li.appendChild(document.createTextNode(item.name));
     ul.appendChild(li);
   }
   section.appendChild(ul);
