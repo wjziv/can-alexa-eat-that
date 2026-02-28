@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Can Alexa Eat That?</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <span class="site-icon" aria-hidden="true">🍽️</span>
+    <h1>Can Alexa Eat That?</h1>
+    <p class="subtitle">Search for a food to find out.</p>
+  </header>
+
+  <main>
+    <div class="search-wrap">
+      <input
+        type="search"
+        id="search"
+        placeholder="e.g. Skittles, broccoli…"
+        autocomplete="off"
+        autofocus
+      />
+    </div>
+    <ul id="results" role="list" aria-live="polite"></ul>
+    <section id="all-items" aria-label="All items"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
