@@ -112,7 +112,7 @@ main {
 
 #search {
   width: 100%;
-  padding: 0.9rem 1rem 0.9rem 2.8rem;
+  padding: 0.9rem 2.8rem 0.9rem 2.8rem;
   font-size: 1.05rem;
   border: 2px solid var(--border);
   border-radius: var(--radius);
@@ -129,6 +129,32 @@ main {
 
 #search::-webkit-search-cancel-button {
   -webkit-appearance: none;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border);
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clear-search-btn:hover {
+  background: #cbd5e1;
+  color: var(--text);
+}
+
+.clear-search-btn:focus-visible {
+  outline: 3px solid rgba(99,102,241,.18);
+  outline-offset: 2px;
 }
 
 /* ── Result cards ────────────────────────────────── */
