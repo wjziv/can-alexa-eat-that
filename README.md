@@ -40,8 +40,11 @@ Open <http://localhost:8080>.
 
 ## Install as web app
 
-On supported browsers, an **Install as app** button appears in the header once
-the install prompt is available.
+On supported Chromium browsers, install prompting is browser-managed and may
+appear automatically after engagement heuristics are met. The site also exposes
+an **Install as app** button when an install prompt event is available.
+
+On iPhone/iPad (Safari), use **Share → Add to Home Screen**.
 
 ## Building
 

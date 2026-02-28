@@ -196,12 +196,24 @@ function search(query, items) {
 
 function setupInstallPrompt() {
   const installButton = document.getElementById('install-app');
+  const installHint = document.getElementById('install-hint');
   if (!installButton) return;
 
   let deferredPrompt = null;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+  if (isStandalone) {
+    installButton.hidden = true;
+    if (installHint) installHint.hidden = true;
+    return;
+  }
+
+  if (isIOS && installHint) {
+    installHint.hidden = false;
+  }
 
   window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
     deferredPrompt = event;
     installButton.hidden = false;
   });
@@ -209,8 +221,12 @@ function setupInstallPrompt() {
   installButton.addEventListener('click', async () => {
     if (!deferredPrompt) return;
 
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
+    try {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+    } catch (err) {
+      // Browser may have already handled the prompt automatically.
+    }
     deferredPrompt = null;
     installButton.hidden = true;
   });
@@ -218,6 +234,7 @@ function setupInstallPrompt() {
   window.addEventListener('appinstalled', () => {
     deferredPrompt = null;
     installButton.hidden = true;
+    if (installHint) installHint.hidden = true;
   });
 }
 
@@ -225,7 +242,7 @@ function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
 
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {
       // Install prompt can still work without caching if registration fails.
     });
   });
