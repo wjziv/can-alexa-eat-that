@@ -1,50 +1,51 @@
 # Alexa's List - NO FOODS
+# AIP-style why: avoid grains, dairy, legumes, nightshades, and highly processed inputs.
 
 # GLUTEN & GRAINS
-Amaranth: avoid amaranth grains.
-Barley: avoid barley.
-Buckwheat: avoid buckwheat.
-Bulgur: avoid bulgur (listed as bulger in source list).
-Corn: avoid corn.
-Millet: avoid millet.
-Oat: only in moderation; mostly oat milk.
-Quinoa: avoid quinoa.
+Amaranth
+Barley
+Buckwheat
+Bulgur
+Corn
+Millet
+Oat: limited/moderation only.
+Quinoa
 Rice: white rice only in moderation.
-Rye: avoid rye.
-Sorghum: avoid sorghum.
-Spelt: avoid spelt.
-Wheat: avoid wheat.
+Rye
+Sorghum
+Spelt
+Wheat
 
 # DAIRY
-Butter: avoid butter.
-Cheese: avoid cheese.
-Cream: avoid cream.
-Ghee: only in moderation.
-Milk: avoid milk; substitute almond milk.
-Yogurt: avoid dairy yogurt; substitute coconut milk yogurt.
+Butter
+Cheese
+Cream
+Ghee: limited/moderation only.
+Milk: use almond milk instead.
+Yogurt: use coconut milk yogurt instead.
 
 # LEGUMES
-Black beans: avoid black beans.
-Chickpeas: avoid unless very well processed; hummus may be tolerated.
-Fava beans: avoid fava beans.
-Kidney beans: avoid kidney beans.
-Lentils: avoid lentils.
-Lima beans: avoid lima beans.
-Peanuts: only in moderation.
-Soybeans: avoid soybeans; use coconut aminos instead of soy sauce.
+Black beans
+Chickpeas: sometimes tolerated if very well processed (e.g., hummus).
+Fava beans
+Kidney beans
+Lentils
+Lima beans
+Peanuts: limited/moderation only.
+Soybeans: use coconut aminos instead of soy sauce.
 
 # NIGHTSHADE VEGETABLES
-Eggplant: avoid eggplant.
-Goji berries: avoid goji berries.
-Ground cherries: avoid ground cherries (regular cherries are separate).
-Peppers: avoid all peppers, including bell and spicy peppers.
-Red spices: avoid red spices, including chili powder and paprika.
-Potato: avoid potato.
-Tomato: avoid tomato.
-Tomatillo: avoid tomatillo.
+Eggplant
+Goji berries
+Ground cherries: not the same as regular cherries.
+Peppers: all peppers (bell + spicy).
+Red spices: including chili powder and paprika.
+Potato
+Tomato
+Tomatillo
 
 # OTHER
-Alcohol: no alcohol.
-Processed foods: avoid processed foods.
-Refined sugars: limit refined sugars.
-Artificial sweeteners: limit artificial sweeteners; use coconut sugar or maple syrup.
+Alcohol
+Processed foods
+Refined sugars: limit.
+Artificial sweeteners: limit; prefer coconut sugar or maple syrup.
