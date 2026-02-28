@@ -106,7 +106,7 @@ function scoreItem(query, item) {
 // All-items list (alphabetized, icon + name only)
 // ---------------------------------------------------------------------------
 
-function renderAllItems(items) {
+function renderAllItems(items, onSelectItem) {
   const section = document.getElementById('all-items');
   const sorted = [...items].sort((a, b) =>
     a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
@@ -123,6 +123,16 @@ function renderAllItems(items) {
   ul.className = 'all-items-list';
   for (const item of sorted) {
     const li = document.createElement('li');
+    li.setAttribute('role', 'button');
+    li.tabIndex = 0;
+    li.addEventListener('click', () => onSelectItem(item.name));
+    li.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        onSelectItem(item.name);
+      }
+    });
+
     const iconSpan = document.createElement('span');
     iconSpan.setAttribute('aria-hidden', 'true');
     iconSpan.textContent = item.status === 'allowed' ? '✅' : '❌';
@@ -207,10 +217,8 @@ function search(query, items) {
   const input = document.getElementById('search');
   const allSect = document.getElementById('all-items');
 
-  renderAllItems(items);
-
-  input.addEventListener('input', () => {
-    const query = input.value.trim();
+  function applySearch(queryText) {
+    const query = queryText.trim();
     if (query) {
       allSect.hidden = true;
       renderResults(search(query, items));
@@ -218,5 +226,18 @@ function search(query, items) {
       allSect.hidden = false;
       document.getElementById('results').innerHTML = '';
     }
+  }
+
+  function selectItem(name) {
+    input.value = name;
+    input.focus();
+    input.setSelectionRange(name.length, name.length);
+    applySearch(name);
+  }
+
+  renderAllItems(items, selectItem);
+
+  input.addEventListener('input', () => {
+    applySearch(input.value);
   });
 })();

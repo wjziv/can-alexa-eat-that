@@ -231,4 +231,17 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.all-items-list li:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.all-items-list li:focus-visible {
+  outline: 3px solid rgba(99,102,241,.18);
+  outline-offset: 2px;
+  border-color: var(--accent);
 }
