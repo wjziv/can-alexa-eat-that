@@ -11,6 +11,7 @@
   --text:         #0f172a;
   --muted:        #64748b;
   --border:       #e2e8f0;
+  --focus-ring:   3px solid rgba(99,102,241,.18);
   --radius:       0.75rem;
   --shadow:       0 2px 8px rgba(0,0,0,.07);
   --shadow-lg:    0 4px 20px rgba(0,0,0,.12);
@@ -82,11 +83,6 @@ h1 {
   box-shadow: var(--shadow-lg);
 }
 
-.install-btn:focus-visible {
-  outline: 3px solid rgba(99,102,241,.18);
-  outline-offset: 2px;
-}
-
 /* ── Layout ──────────────────────────────────────── */
 
 main {
@@ -150,11 +146,6 @@ main {
 .clear-search-btn:hover {
   background: #cbd5e1;
   color: var(--text);
-}
-
-.clear-search-btn:focus-visible {
-  outline: 3px solid rgba(99,102,241,.18);
-  outline-offset: 2px;
 }
 
 /* ── Result cards ────────────────────────────────── */
@@ -290,8 +281,13 @@ main {
   box-shadow: var(--shadow-lg);
 }
 
+.install-btn:focus-visible,
+.clear-search-btn:focus-visible,
 .all-items-list li:focus-visible {
-  outline: 3px solid rgba(99,102,241,.18);
+  outline: var(--focus-ring);
   outline-offset: 2px;
+}
+
+.all-items-list li:focus-visible {
   border-color: var(--accent);
 }
