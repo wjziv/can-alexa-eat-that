@@ -83,6 +83,12 @@ h1 {
   box-shadow: var(--shadow-lg);
 }
 
+.install-hint {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 /* ── Layout ──────────────────────────────────────── */
 
 main {
